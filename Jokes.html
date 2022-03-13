@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jokes web</title>
+    <link rel="stylesheet" href="joks.css">
+</head>
+<body>
+    <div class="container">
+        <h3>  Best joks to make your day</h3>
+        <div class="joke" id="joke">
+            Awsome joke is loading.... 
+        </div>
+        <button class="btn" id="jokeBtn">Next joke </button>
+    </div>
+</body>
+
+<script>
+
+ // ************** PROMISES function ************************* -- 
+/*
+2cond => succ => fail 
+
+fetch (https://restcountries.ed/rest/v2/name/india)
+
+milega => sab sahi hai.cond
+nahi milega to => internet error. / server err
+
+succ = fullfield
+unsucc = reject
+
+
+
+// 
+fetch
+fullfilled
+reject
+
+*/
+
+// ******
+
+// GET https://icanhazdadjoke.com/
+
+
+//  ******************** Promises Function in js **************************--
+
+/*
+const jokes = document.querySelector('#joke');
+const jokeBtn = document.querySelector('#jokeBtn');
+
+const generateJokes = () => {
+
+
+    const setHeader = {
+        headers : {
+            Accept : "application/Json"
+        }
+    }
+
+    fetch('https://icanhazdadjoke.com', setHeader)
+    .then((res) =>  res.json()  )
+    .then ((data) => {
+        jokes.innerHTML = data.joke;
+    } ) .catch((error) => {
+        console.log(error);
+    } )
+
+}
+
+
+jokeBtn.addEventListener('click', generateJokes);
+generateJokes();
+
+*/
+// *******************
+
+// ********************  Async  Await function in js***** --
+
+// use async awit in normal function
+
+// ex-1
+/*
+async function generateJokes() {
+    
+}
+*/
+
+// use async function in fad arrow function
+// ex-1 
+
+const jokes = document.querySelector('#joke');
+const jokeBtn = document.querySelector('#jokeBtn');
+
+
+const generateJokes = async () => {
+
+ try{   
+   const setHeader = {
+    headers : {
+        Accept : "application/Json"
+    }
+}
+ const res = await fetch('https://icanhazdadjoke.com', setHeader);
+ const data = await res.json();
+ jokes.innerHTML = data.joke;
+}catch(err){
+     console.log(`the error is ${err}`);
+ }
+
+}
+
+jokeBtn.addEventListener('click', generateJokes);
+generateJokes();
+
+
+
+
+</script>
+
+</html>
